@@ -4,21 +4,30 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
-  // console.log(req);
-  // res.sendFile();
-  res.sendFile(__dirname + "/index.html");
-  // res.send(__dirname);
 
-})
+   var today = new Date();
+   var currentDay = today.getDate();
+   var day = "";
+  // res.sendFile(__dirname + "/index.html");
+ 
+
+if (currentDay === 6 || currentDay ===0){
+  day ="Weekend";
+  res.render('list', {kindOfDay: day});
+}else{
+  day="Weekday";
+  res.render('list', {kindOfDay: day});
+}
+
+
+});
 
 app.post("/", function(req, res){
-  // var numb1 = Number(req.body.num1);
-  // var numb2 = Number(req.body.num2);
-  // results = numb1 + numb2;
 
-  res.send("The results of ");
+
 })
 
 app.listen(3000, function(){
