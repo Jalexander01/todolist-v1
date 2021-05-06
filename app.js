@@ -1,20 +1,21 @@
+//Headers
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
-
 app.set('view engine', 'ejs');
+
+let items = [];
 
 app.get("/", function(req, res){
 
-   var today = new Date();
-   var currentDay = today.getDate();
-   var day = "";
+   let today = new Date();
+   let currentDay = today.getDate();
+   let day = "";
   // res.sendFile(__dirname + "/index.html");
 
 
-  var options = { weekday: 'long', day: 'numeric' , month: 'long' };
+  let options = { weekday: 'long', day: 'numeric' , month: 'long' };
 
 
   console.log(today.toLocaleDateString("en-US")); // 9/17/2016
@@ -22,13 +23,16 @@ app.get("/", function(req, res){
 day= today.toLocaleDateString("en-US", options);
 
 console.log(today.toDateString());
-res.render('list', {kindOfDay: day});
+res.render('list', {kindOfDay: day, newItems: items});
 
 });
 
 app.post("/", function(req, res){
+item = req.body.userInput;
+items.push(item);
+console.log(item);
+res.redirect("/");
 
-console.log(res.body);
 
 })
 
