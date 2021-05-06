@@ -8,41 +8,27 @@ app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
 
-   var today = new Date(2021, 5, 5);
+   var today = new Date();
    var currentDay = today.getDate();
    var day = "";
   // res.sendFile(__dirname + "/index.html");
 
 
-  switch (currentDay) {
-    case 0:
-      day = "Sunday";
-      break;
-    case 1:
-      day = "Monday";
-      break;
-    case 2:
-       day = "Tuesday";
-      break;
-    case 3:
-      day = "Wednesday";
-      break;
-    case 4:
-      day = "Thursday";
-      break;
-    case 5:
-      day = "Friday";
-      break;
-    case 6:
-      day = "Saturday";
+  var options = { weekday: 'long', day: 'numeric' , month: 'long' };
 
-  }
+
+  console.log(today.toLocaleDateString("en-US")); // 9/17/2016
+  console.log(today.toLocaleDateString("en-US", options)); // Saturday, September 17, 2016
+day= today.toLocaleDateString("en-US", options);
+
+console.log(today.toDateString());
 res.render('list', {kindOfDay: day});
 
 });
 
 app.post("/", function(req, res){
 
+console.log(res.body);
 
 })
 
