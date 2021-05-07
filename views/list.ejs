@@ -10,15 +10,20 @@
   <h1> It's a <%= kindOfDay %></h1>
 
 </div>
+<div class="box">
+  <% for (var i =0; i <= newItems.length; i++){%>
+ <div class="item">
+   <li> <%= newItems[i] %> </li>
+ </div>
 
 
 
-<% for (var i =0; i <= newItems.length; i++){%>
-<ul>
-  <li> <%= newItems[i] %> </li>
+  <%}%>
+</div>
 
-</ul>
-<%}%>
+
+
+
 
 
 
