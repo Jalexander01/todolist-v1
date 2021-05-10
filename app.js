@@ -27,6 +27,7 @@ res.render('list',  {listTitle:"Work List", newItems: workItems});
 
 });
 
+//about route
 app.get("/about", function(req, res){
   res.render('about');
 });
