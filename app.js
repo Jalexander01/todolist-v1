@@ -5,6 +5,8 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
+const date = require(__dirname + "/date.js");
+
 
 let items = [];//date date store
 let workItems = []; //Work item date store
@@ -13,20 +15,8 @@ let workItems = []; //Work item date store
 //root route for the date
 app.get("/", function(req, res){
 
-   let today = new Date();
-   let currentDay = today.getDate();
-   let day = "";
-  // res.sendFile(__dirname + "/index.html");
-
-
-  let options = { weekday: 'long', day: 'numeric' , month: 'long' };
-
-
-  // console.log(today.toLocaleDateString("en-US")); // 9/17/2016
-//  console.log(today.toLocaleDateString("en-US", options)); // Saturday, September 17, 2016
-day= today.toLocaleDateString("en-US", options);
-
-console.log(today.toDateString());
+//here we had Getdate code and moved it to date.js
+let day = date();
 res.render('list', {listTitle: day, newItems: items});
 
 });
