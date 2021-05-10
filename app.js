@@ -16,7 +16,9 @@ let workItems = []; //Work item date store
 app.get("/", function(req, res){
 
 //here we had Getdate code and moved it to date.js
-let day = date();
+// let day = date.getDay();
+//or
+let day = date.getDate();
 res.render('list', {listTitle: day, newItems: items});
 
 });
