@@ -1,4 +1,5 @@
-module.exports.getDate = function ()
+// module.exports.getDate = function ()
+exports.getDate = function ()//shorter version
 {
   let today = new Date();
 let currentDay = today.getDate();
@@ -17,8 +18,8 @@ console.log(today.toDateString());
 // return day;
 }
 
-module.exports.getDay =
-function ()
+// module.exports.getDay = function ()
+exports.getDay = function ()
 {
   let today = new Date();
 let currentDay = today.getDate();
