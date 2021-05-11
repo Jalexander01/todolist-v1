@@ -25,7 +25,7 @@ res.render('list', {listTitle: day, newItems: items});
 
 //work route
 app.get("/work", function(req, res){
-res.render('list',  {listTitle:"Work List", newItems: workItems});
+res.render('list',  {listTitle:"Work", newItems: workItems});
 
 });
 
