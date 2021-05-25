@@ -39,4 +39,4 @@ return today.toLocaleDateString("en-US", options);
 console.log(today.toDateString());
 // return day;
 }
-console.log(module.exports);
+// console.log(module.exports);
