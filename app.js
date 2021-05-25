@@ -84,32 +84,22 @@ app.get("/about", function(req, res){
   res.render('about');
 });
 
+
+
+
+
 app.post("/", function(req, res){
-  console.log(req.body);
-
-item = req.body.userInput;
-if(req.body.list === "Work"){
-  workItems.push(item);
-  res.redirect("/work");
-
-}else{
-  items.push(item);
-  // console.log(item);
+  item = req.body.userInput;
+const itemDocument = new Item({
+  name: item
+  }); 
+  itemDocument.save();
   res.redirect("/");
+  });
 
-}
-
-
-})
-
-app.post("/work", function(req, res){
-
-  let item = req.body.userInput;
-  workItems.push(item);
-  res.redirect("/work");
-
-})
-
+  app.post("/delete", function(req, res){
+    console.log(req.body.checkBox);
+    });
 
 
 app.listen(process.env.PORT || 3000, function(){
