@@ -10,9 +10,8 @@ app.use(express.static("public"));
 const date = require(__dirname + "/date.js");
 // V2
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
-  useNewUrlParser: true
-});
+const atlasConnection = "mongodb+srv://<username>:<password>@cluster0.at70z.mongodb.net/";
+mongoose.connect(atlasConnection +"todolistDB", {  useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
