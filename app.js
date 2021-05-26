@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 const date = require(__dirname + "/date.js");
+const day = date.getDate();
 // V2
 const mongoose = require("mongoose");
 const atlasConnection = "mongodb+srv://admin-conbel:admin123@cluster0.at70z.mongodb.net/";
@@ -56,7 +57,7 @@ app.get("/", function(req, res) {
       });
       res.redirect("/");
     } else {
-      res.render("list", {listTitle: "Today", newListItems: foundItems});
+      res.render("list", {listTitle: day, newListItems: foundItems});
     }
   });
 
