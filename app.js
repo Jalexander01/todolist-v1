@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
+const _ = require("lodash");
 const date = require(__dirname + "/date.js");
 const day = date.getDate();
 // V2
